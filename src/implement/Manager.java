@@ -13,6 +13,11 @@ public class Manager implements ImplementInterface {
 	
 	private void parse() {};
 	
+	DocumentPo getNewDocuemntPo(String type) {
+		this.d = new DocumentPo(type);
+		return d;
+	}
+	
 	public ArrayList<ActPo> getActRecommend() {
 		// TODO Auto-generated method stub
 		return null;
