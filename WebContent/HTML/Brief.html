@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>要素式审判辅助系统</title>
+    <link rel="stylesheet" href="../libs/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../libs/bootstrap-3.3.7-dist/css/bootstrap-datetimepicker.min.css">
+    <script src="../libs/jquery-3.3.1.min.js"></script>
+    <script src="../libs/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="../libs/bootstrap-datetimepicker.js"></script>
+    <script src="../libs/bootstrap-datetimepicker.fr.js"></script>
+    <style>
+        .col-sm-2{
+            width: 120px;
+            text-align: left;
+        }
+        .col-sm-10{
+            width:250px;
+        }
+
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="../HTML/Login.html"><span class="glyphicon glyphicon-leaf"></span>     TrialAssistSystem</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="../HTML/Indictment.html"><span class="glyphicon glyphicon-paperclip"></span> 原告诉讼 </a></li>
+            <li><a href="../HTML/Brief.html"><span class="glyphicon glyphicon-link"></span> 被告答辩 </a></li>
+            <li><a href="../HTML/Judgment.html"><span class="glyphicon glyphicon-list"></span> 判决辅助 </a></li>
+        </ul>
+    </div>
+</nav>
+<div class="page-header" style="text-align:center;">
+    <h1>要素式答辩状<br>
+        <small>被告方</small>
+    </h1>
+</div>
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">通用信息</h3>
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <label for="staffname" class="col-sm-2 control-label" >原告姓名</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="staffname" placeholder="请输入姓名">
+                </div>
+                <label for="idcard" class="col-sm-2 control-label" >身份证编号</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="idcard" placeholder="请输入身份证编号" style="width: 200px">
+                </div>
+                <label for="staff-tel" class="col-sm-2 control-label" >联系方式</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="staff-tel" placeholder="请输入联系方式" style="width: 200px">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" >被告单位名称</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="compname" placeholder="请输入单位名称">
+                </div>
+                <label for="address" class="col-sm-2 control-label" >通讯地址</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control"  placeholder="请输入通讯地址" style="width: 200px">
+                </div>
+            </div>
+            <div class="form-group">
+                <label  class="col-sm-2 control-label" >法定代表人</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control"  placeholder="请输入法定代表人">
+                </div>
+                <label for="address" class="col-sm-2 control-label" >委托代理人</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="address" placeholder="请输入委托代理人" style="width: 200px">
+                </div>
+                <label for="comp-tel" class="col-sm-2 control-label" >联系方式</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="comp-tel" placeholder="请输入联系方式" style="width: 200px">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="compname" class="col-sm-2 control-label" >是否有仲裁前置</label>
+                <div class="radio" style="width: 250px;float: left">
+                    <div class="col-sm-10" style="width: 50px;">
+                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">是
+                    </div>
+                    <div class="col-sm-10" style="width: 50px;">
+                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">否
+                    </div>
+                </div>
+                <div class="col-sm-10" style="width:500px ;">
+                    <label for="timeset" class="col-sm-2 control-label" >仲裁时间</label>
+                    <div class="input-group date form_date col-md-5 col-sm-10" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                        <input class="form-control" size="16" type="text" value="" readonly id="timeset">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="timeset" class="col-sm-2 control-label" >仲裁结果</label>
+                <textarea class="form-control" rows="2" style="width: 400px" placeholder="请输入仲裁结果"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="compname" class="col-sm-2 control-label" >是否签订劳动合同</label>
+                <div class="radio" style="width: 250px;float: left">
+                    <div class="col-sm-10" style="width: 50px;">
+                        <input type="radio" name="optionsRadios" id="optionsRadios3" value="option1">是
+                    </div>
+                    <div class="col-sm-10" style="width: 50px;">
+                        <input type="radio" name="optionsRadios" id="optionsRadios4" value="option2">否
+                    </div>
+                </div>
+                <div class="col-sm-10" style="width:500px ;">
+                    <label for="contracttime" class="col-sm-2 control-label" >劳动合同签订时间</label>
+                    <div class="input-group date form_date col-md-5 col-sm-10" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                        <input class="form-control" size="16" type="text" value="" readonly id="contracttime">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="compname" class="col-sm-2 control-label" >劳动合同类别</label>
+                <div class="col-sm-10">
+                    <select class="form-control">
+                        <optgroup label="期限合同" class="group-1">
+                            <option>固定期限</option>
+                            <option>无固定期限</option>
+                        </optgroup>
+                        <optgroup label="工作量合同" class="group-2">
+                            <option>完成工作</option>
+                            <option>未完成</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <label for="compname" class="col-sm-2 control-label" >劳动合同履行地</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="workaddress" placeholder="请输入工作地点" style="width: 200px">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="worktype" class="col-sm-2 control-label" >工作职位</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="worktype" placeholder="请输入工作职位">
+                </div>
+                <div class="col-sm-10" style="width:500px ;">
+                    <label for="timein" class="col-sm-2 control-label" >入职时间</label>
+                    <div class="input-group date form_date col-md-5 col-sm-10" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                        <input class="form-control" size="16" type="text" value="" readonly id="timein">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="compname" class="col-sm-2 control-label" >双方解除或终止劳动关系</label>
+                <div class="col-sm-10">
+                    <select class="form-control">
+                        <optgroup label="已解除劳动关系" class="group-1">
+                            <option>劳动合同期满</option>
+                            <option>辞职 个人原因</option>
+                            <option>辞职 单位原因被迫离职</option>
+                            <option>辞退</option>
+                            <option>双方协商一致提前解除</option>
+                            <option>其他</option>
+                        </optgroup>
+                        <optgroup label="未解除劳动关系" class="group-2">
+                            <option>保持劳动关系</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="col-sm-10" style="width:500px ;">
+                    <label for="timefact" class="col-sm-2 control-label" >发生劳动争议的时间</label>
+                    <div class="input-group date form_date col-md-5 col-sm-10" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                        <input class="form-control" size="16" type="text" value="" readonly id="timefact">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="compname" class="col-sm-2 control-label" >诉讼类别选择</label>
+                <div class="col-sm-10">
+                    <select class="form-control" id="status" >
+                        <optgroup label="请选择您的诉讼类别" class="group-1">
+                            <option value="injury">工伤保险待遇纠纷</option>
+                            <option value="search">追索劳动报酬纠纷</option>
+                            <option value="relationship">确认劳动关系纠纷</option>
+                            <option value="normal">普通劳动纠纷（双倍工资，年假，加班等）</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="col-sm-10"></div>
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-info">确认</button>
+                    <button type="reset"  class="btn btn-default">重置</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- 默认显示类-->
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">要点注意</h3>
+    </div>
+    <div class="panel-body">
+        <p>1.为了帮助您更好地参加诉讼，保护您的合法权益，特发本表。</p>
+        <p>2.所列各项内容都是法院查明案件事实所需，请您务必认真阅读，如实填写。本表中分“劳动者填写”栏和“用人单位填写”栏请注意区分，不要填写应由对方填写的栏目。</p>
+        <p>3.由于本表针对所有劳动争议纠纷案件之确认劳动关系纠纷。本表中勾选项可以在对应项打“√”，其中有些项目可能与您的案件不符，您可以勾选“无”项，符合多种情况可复选。有证据向法庭提供的，应在有无证据栏勾选“有”项，并向法庭提供相应的证据；对于本表中未列项目，而您认为需向法庭陈述的，可在本表“其他需要说明的情况”中填写，并提供相应的证据。</p>
+        <p>4.您在本表中填内容属于您依法向法庭陈述的重要内容，您需要逐页签章确认。法院将把本表的依法送达给对方当事人，由对方当事人确认或否认。如存在多个对方当事人，您需要按对方的人数填写，或在多份副件上签章。</p>
+        <p>5.根据案件情况，本院有可能采用要素式庭审和要素式裁判文书，采用要素式庭审的将不对双方已经共同确认的事实进行审理；采用要素式裁判文书的，文书中对双方无争议的事实只做总结，不赘述理由。</p>
+        <div class="alert alert-success">
+            <p>重要提示本人（单位）已经阅读完毕，清楚其中的内容。</p>
+            <p>在本表中填写的内容，是本人（单位）对案件事实的确认 ！本人（单位）对确认结果负责。</p>
+        </div>
+    </div>
+</div>
+<!-- 工伤保险待遇类-->
+<div class="panel panel-info" id="injury" style="display: none">
+    <div class="panel-heading" >
+        <h3 class="panel-title">工伤保险待遇纠纷</h3>
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <label for="compname" class="col-sm-2 control-label" >用人单位运行情况</label>
+                <div class="col-sm-10">
+                    <select class="form-control"  >
+                        <optgroup label="请选择用人单位运行情况" class="group-1">
+                            <option>正常经营</option>
+                            <option>吊销</option>
+                            <option>注销</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <label for="compname" class="col-sm-2 control-label" >双方建立的劳动关系类别</label>
+                <div class="col-sm-10">
+                    <select class="form-control"  >
+                        <optgroup label="请选择劳动关系类别" class="group-1">
+                            <option>普通（全日制）劳动关系</option>
+                            <option>劳务派遣</option>
+                            <option>集体合同</option>
+                            <option>非全日制用工</option>
+                            <option>试用期</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <label for="compname" class="col-sm-2 control-label" >起诉用人单位原因</label>
+                <div class="col-sm-10">
+                    <select class="form-control"  >
+                        <optgroup label="请选择起诉用人单位原因" class="group-1">
+                            <option>符合工伤待遇的相关费用工伤保险基金未能支付</option>
+                            <option>存在其他不能由工伤保险支付但按规定应由用人单位负担的费用</option>
+                            <option>其他</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="compname" class="col-sm-2 control-label" >约定的工资金额</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control"  placeholder="请输入约定的工资金额XX元">
+                </div>
+                <label for="address" class="col-sm-2 control-label" >实际领取的工资金额</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control"  placeholder="请输入实际领取的工资金额XX元" style="width: 200px">
+                </div>
+                <label for="comp-tel" class="col-sm-2 control-label" >受伤后至劳动能力鉴定前发放工资数额</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control"  placeholder="请输入受伤后至劳动能力鉴定前发放工资数额XX元" style="width: 200px">
+                </div>
+            </div>
+            <div class="well well-lg">
+                <div class="form-group">
+                    <label for="compname" class="col-sm-2 control-label" >是否做出《认定工伤决定书》</label>
+                    <div class="radio" style="width: 250px;float: left">
+                        <div class="col-sm-10" style="width: 50px;">
+                            <input type="radio" name="optionsRadios"  value="option1">是
+                        </div>
+                        <div class="col-sm-10" style="width: 50px;">
+                            <input type="radio" name="optionsRadios"  value="option2">否
+                        </div>
+                    </div>
+                    <div class="col-sm-10" style="width:500px ;">
+                        <label for="timefact" class="col-sm-2 control-label" >做出时间</label>
+                        <div class="input-group date form_date col-md-5 col-sm-10" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                            <input class="form-control" size="16" type="text" value="" readonly >
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="compname" class="col-sm-2 control-label"  style="width: 300px;">是否经劳动能力鉴定委员会作出《劳动能力鉴定结论书》、《职工工伤伤残证》</label>
+                    <div class="radio" style="width: 100px;float: left">
+                        <div class="col-sm-10" style="width: 50px;">
+                            <input type="radio" name="optionsRadios"  value="option1">是
+                        </div>
+                        <div class="col-sm-10" style="width: 50px;">
+                            <input type="radio" name="optionsRadios"  value="option2">否
+                        </div>
+                    </div>
+                    <div class="col-sm-10" style="width:400px ;">
+                        <label for="timefact" class="col-sm-2 control-label" >做出时间</label>
+                        <div class="input-group date form_date col-md-5 col-sm-10" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                            <input class="form-control" size="16" type="text" value="" readonly >
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                        </div>
+                    </div>
+                    <label for="address" class="col-sm-2 control-label" >伤残等级</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control"  placeholder="请输入伤残等级">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="compname" class="col-sm-2 control-label"  style="width: 300px;">是否经劳动能力鉴定委员会作出《劳动能力鉴定结论通知》</label>
+                    <div class="radio" style="width: 100px;float: left">
+                        <div class="col-sm-10" style="width: 50px;">
+                            <input type="radio" name="optionsRadios"  value="option1">是
+                        </div>
+                        <div class="col-sm-10" style="width: 50px;">
+                            <input type="radio" name="optionsRadios"  value="option2">否
+                        </div>
+                    </div>
+                    <div class="col-sm-10" style="width:400px ;">
+                        <label for="timefact" class="col-sm-2 control-label" >做出时间</label>
+                        <div class="input-group date form_date col-md-5 col-sm-10" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                            <input class="form-control" size="16" type="text" value="" readonly >
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                        </div>
+                    </div>
+                    <label  class="col-sm-2 control-label" >有无护理依赖</label>
+                    <div class="col-sm-10">
+                        <select class="form-control"  >
+                            <option>有</option>
+                            <option>无</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="compname" class="col-sm-2 control-label" >用人单位是否已缴纳工伤保险</label>
+                <div class="radio" style="width: 250px;float: left">
+                    <div class="col-sm-10" style="width: 50px;">
+                        <input type="radio" name="optionsRadios"  value="option1">是
+                    </div>
+                    <div class="col-sm-10" style="width: 50px;">
+                        <input type="radio" name="optionsRadios"  value="option2">否
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="compname" class="col-sm-2 control-label" style="width: 400px;">用人单位是否在事故发生之日或劳动者被诊断、鉴定为职业病之日起30日内，申请工伤认定</label>
+                <div class="radio" style="width: 100px;float: left">
+                    <div class="col-sm-10" style="width: 50px;">
+                        <input type="radio" name="optionsRadios"  value="option1">是
+                    </div>
+                    <div class="col-sm-10" style="width: 50px;">
+                        <input type="radio" name="optionsRadios"  value="option2">否
+                    </div>
+                </div>
+                <div class="col-sm-10" style="width:400px ;">
+                    <label for="timefact" class="col-sm-2 control-label" >申请时间</label>
+                    <div class="input-group date form_date col-md-5 col-sm-10" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                        <input class="form-control" size="16" type="text" value="" readonly >
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="compname" class="col-sm-2 control-label" style="width: 400px;">如用人单位未按时申请工伤认定，职工、工会是否在1年内申请</label>
+                <div class="radio" style="width: 100px;float: left">
+                    <div class="col-sm-10" style="width: 50px;">
+                        <input type="radio" name="optionsRadios"  value="option1">是
+                    </div>
+                    <div class="col-sm-10" style="width: 50px;">
+                        <input type="radio" name="optionsRadios"  value="option2">否
+                    </div>
+                </div>
+                <div class="col-sm-10" style="width:400px ;">
+                    <label for="timefact" class="col-sm-2 control-label" >申请时间</label>
+                    <div class="input-group date form_date col-md-5 col-sm-10" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                        <input class="form-control" size="16" type="text" value="" readonly >
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="compname" class="col-sm-2 control-label" style="width: 400px;">用人单位是否申请工伤保险基金支付劳动者因工伤事件花费的相关费用</label>
+                <div class="radio" style="width: 100px;float: left">
+                    <div class="col-sm-10" style="width: 50px;">
+                        <input type="radio" name="optionsRadios"  value="option1">是
+                    </div>
+                    <div class="col-sm-10" style="width: 50px;">
+                        <input type="radio" name="optionsRadios"  value="option2">否
+                    </div>
+                </div>
+                <div class="col-sm-10" style="width:400px ;">
+                    <label for="timefact" class="col-sm-2 control-label" >申请时间</label>
+                    <div class="input-group date form_date col-md-5 col-sm-10" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                        <input class="form-control" size="16" type="text" value="" readonly >
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="well well-lg">
+                <div class="form-group">
+                    <label for="compname" class="col-sm-2 control-label" >劳动者因此次工伤事件产生的费用种类</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" multiple>
+                            <optgroup label="请选择费用种类" class="group-1">
+                                <option>工伤医疗费用</option>
+                                <option>配置辅助器具费用</option>
+                                <option>生活护理费</option>
+                                <option>一次性伤残赔偿金和伤残津贴□</option>
+                                <option>工亡丧葬补助金</option>
+                                <option>供养亲属抚恤金</option>
+                                <option>一次性工亡补助金</option>
+                                <option>其他费用</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <label for="compname" class="col-sm-2 control-label" >用人单位需支付的工伤待遇名称及数额</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" multiple>
+                            <optgroup label="请选择支付待遇名称" class="group-1">
+                                <option>工伤医疗费用</option>
+                                <option>配置辅助器具费用</option>
+                                <option>生活护理费</option>
+                                <option>一次性伤残赔偿金和伤残津贴□</option>
+                                <option>工亡丧葬补助金</option>
+                                <option>供养亲属抚恤金</option>
+                                <option>一次性工亡补助金</option>
+                                <option>其他费用</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="compname" class="col-sm-2 control-label" >是否有不能由工伤保险报销的费用</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" multiple>
+                            <optgroup label="请选择不能报销费用名称" class="group-1">
+                                <option>工伤医疗停工留薪期工资</option>
+                                <option>解除或终止劳动关系后一次性工伤补助金</option>
+                                <option>及伤残就业补助金</option>
+                                <option>其他费用</option>
+                                <option>无</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="compname" class="col-sm-2 control-label"style="width: 300px;">是否存在工伤保险与人身损害赔偿竞合（相同并存在重复）情况</label>
+                <div class="radio" style="width: 100px;float: left">
+                    <div class="col-sm-10" style="width: 50px;">
+                        <input type="radio" name="optionsRadios"  value="option1">是
+                    </div>
+                    <div class="col-sm-10" style="width: 50px;">
+                        <input type="radio" name="optionsRadios"  value="option2">否
+                    </div>
+                </div>
+                <label for="address" class="col-sm-2 control-label" >人身损害赔偿事件赔偿人姓名</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control"  placeholder="请输入赔偿人姓名">
+                </div>
+                <label for="address" class="col-sm-2 control-label" >竞合赔偿项目</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control"  placeholder="请输入竞合赔偿项目">
+                </div>
+            </div>
+            <div class="well well-lg">
+                <div class="form-group">
+                    <label for="address" class="col-sm-2 control-label" >赔偿项目</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control"  placeholder="请输入赔偿项目" style="width: 200px">
+                    </div>
+                    <label for="comp-tel" class="col-sm-2 control-label" >赔偿金额</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control"  placeholder="请输入赔偿金额XX元" style="width: 200px">
+                    </div>
+                    <div class="col-sm-10" style="width:400px ;">
+                        <label for="timefact" class="col-sm-2 control-label" >赔偿时间</label>
+                        <div class="input-group date form_date col-md-5 col-sm-10" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                            <input class="form-control" size="16" type="text" value="" readonly >
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="address" class="col-sm-2 control-label" >尚欠赔偿项目</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control"  placeholder="请输入赔偿项目" style="width: 200px">
+                    </div>
+                    <label for="comp-tel" class="col-sm-2 control-label" >尚欠赔偿金额</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control"  placeholder="请输入赔偿金额XX元" style="width: 200px">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="timeset" class="col-sm-2 control-label" >其余补充</label>
+                <textarea class="form-control" rows="2" style="width: 400px" placeholder="请输入补充内容"></textarea>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-10"></div><div class="col-sm-10"></div>
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-info">确认</button>
+                    <button type="reset"  class="btn btn-default">重置</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- 劳动关系纠纷-->
+<div class="panel panel-info" id="relationship" style="display: none">
+    <div class="panel-heading" >
+        <h3 class="panel-title">劳动关系纠纷</h3>
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <label for="compname" class="col-sm-2 control-label">是否存在劳动关系</label>
+                <div class="radio" style="width: 100px;float: left">
+                    <div class="col-sm-10" style="width: 50px;">
+                        <input type="radio" name="optionsRadios"  value="option1">是
+                    </div>
+                    <div class="col-sm-10" style="width: 50px;">
+                        <input type="radio" name="optionsRadios"  value="option2">否
+                    </div>
+                </div>
+                <label for="compname" class="col-sm-2 control-label" >双方签订劳动合同的方式</label>
+                <div class="col-sm-10">
+                    <select class="form-control" >
+                        <optgroup label="请选择签约方式" class="group-1">
+                            <option>书面</option>
+                            <option>口头</option>
+                            <option>电子数据</option>
+                            <option>其他</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <label for="compname" class="col-sm-2 control-label" >劳动者劳动关系存放地点和方式</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control"  placeholder="请输入劳动者劳动关系存放地" style="width: 200px">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="compname" class="col-sm-2 control-label">有无劳务派遣</label>
+                <div class="radio" style="width: 100px;float: left">
+                    <div class="col-sm-10" style="width: 50px;">
+                        <input type="radio" name="optionsRadios"  value="option1">有
+                    </div>
+                    <div class="col-sm-10" style="width: 50px;">
+                        <input type="radio" name="optionsRadios"  value="option2">无
+                    </div>
+                </div>
+                <label for="compname" class="col-sm-2 control-label" >其他存在劳动关系的证明</label>
+                <div class="col-sm-10">
+                    <select class="form-control" >
+                        <optgroup label="请选择证明类型" class="group-1">
+                            <option>工资支付凭证或记录</option>
+                            <option>社保缴费记录</option>
+                            <option>考勤记录</option>
+                            <option>工作证</option>
+                            <option>工作服</option>
+                            <option>花名册</option>
+                            <option>招工登记表</option>
+                            <option>其他</option>
+                            <option>无</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+            <div class="well well-lg">
+                <div class="form-group">
+                    <label for="compname" class="col-sm-2 control-label">工资领取情况</label>
+                    <div class="radio" style="width: 100px;float: left">
+                        <div class="col-sm-10" style="width: 50px;">
+                            <input type="radio" name="optionsRadios"  value="option1">有
+                        </div>
+                        <div class="col-sm-10" style="width: 50px;">
+                            <input type="radio" name="optionsRadios"  value="option2">无
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10" style="width:400px ;">
+                        <label for="timefact" class="col-sm-2 control-label" >支付时间</label>
+                        <div class="input-group date form_date col-md-5 col-sm-10" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                            <input class="form-control" size="16" type="text" value="" readonly >
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                        </div>
+                    </div>
+                    <label for="address" class="col-sm-2 control-label" >支付主体</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control"  placeholder="请输入支付主体" style="width: 200px">
+                    </div>
+                    <label for="comp-tel" class="col-sm-2 control-label" >支付方式</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control"  placeholder="请输入支付方式" style="width: 200px">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="compname" class="col-sm-2 control-label">社保缴纳情况</label>
+                    <div class="radio" style="width: 100px;float: left">
+                        <div class="col-sm-10" style="width: 50px;">
+                            <input type="radio" name="optionsRadios"  value="option1">有
+                        </div>
+                        <div class="col-sm-10" style="width: 50px;">
+                            <input type="radio" name="optionsRadios"  value="option2">无
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="address" class="col-sm-2 control-label" >支付金额</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control"  placeholder="请输入支付金额" style="width: 200px">
+                    </div>
+                    <label for="comp-tel" class="col-sm-2 control-label" >支付方式</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control"  placeholder="请输入支付方式" style="width: 200px">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="compname" class="col-sm-2 control-label" style="width: 350px;text-align: left;">诉请中是否包含未签订书面劳动合同二倍工资</label>
+                <div class="radio" style="width: 100px;float: left">
+                    <div class="col-sm-10" style="width: 50px;">
+                        <input type="radio" name="optionsRadios"  value="option1">有
+                    </div>
+                    <div class="col-sm-10" style="width: 50px;">
+                        <input type="radio" name="optionsRadios"  value="option2">无
+                    </div>
+                </div>
+                <label for="comp-tel" class="col-sm-2 control-label" >主张二倍工资的金额</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control"  placeholder="请输入主张二倍工资金额" style="width: 200px">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-10" style="width:400px ;">
+                    <label for="timefact" class="col-sm-2 control-label" >拖欠时间</label>
+                    <div class="input-group date form_date col-md-5 col-sm-10" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                        <input class="form-control" size="16" type="text" value="" readonly >
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                    </div>
+                </div>
+                <div class="col-sm-10" style="width:400px ;">
+                    <label for="timefact" class="col-sm-2 control-label" >至</label>
+                    <div class="input-group date form_date col-md-5 col-sm-10" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                        <input class="form-control" size="16" type="text" value="" readonly >
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="timeset" class="col-sm-2 control-label" >其余补充</label>
+                <textarea class="form-control" rows="2" style="width: 400px" placeholder="请输入补充内容"></textarea>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-10"></div><div class="col-sm-10"></div>
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-info">确认</button>
+                    <button type="reset"  class="btn btn-default">重置</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="panel panel-info" id="normal" style="display: none">
+    <div class="panel-heading" >
+        <h3 class="panel-title">普通劳动纠纷</h3>
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <label for="compname" class="col-sm-2 control-label" style="text-align: left;">合同有无约定工作岗位</label>
+                <div class="radio" style="width: 100px;float: left">
+                    <div class="col-sm-10" style="width: 50px;">
+                        <input type="radio" name="optionsRadios"  value="option1">有
+                    </div>
+                    <div class="col-sm-10" style="width: 50px;">
+                        <input type="radio" name="optionsRadios"  value="option2">无
+                    </div>
+                </div>
+                <label for="comp-tel" class="col-sm-2 control-label" >约定岗位</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control"  placeholder="请输入约定岗位名称" style="width: 200px">
+                </div>
+                <label for="compname" class="col-sm-2 control-label" style="text-align: left;">工作岗位一致</label>
+                <div class="radio" style="width: 100px;float: left">
+                    <div class="col-sm-10" style="width: 50px;">
+                        <input type="radio" name="optionsRadios"  value="option1">是
+                    </div>
+                    <div class="col-sm-10" style="width: 50px;">
+                        <input type="radio" name="optionsRadios"  value="option2">否
+                    </div>
+                </div>
+                <label for="comp-tel" class="col-sm-2 control-label" >实际岗位</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control"  placeholder="请输入实际岗位名称" style="width: 200px">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="compname" class="col-sm-2 control-label" style="text-align: left;">合同有无约定工资数额</label>
+                <div class="radio" style="width: 100px;float: left">
+                    <div class="col-sm-10" style="width: 50px;">
+                        <input type="radio" name="optionsRadios"  value="option1">有
+                    </div>
+                    <div class="col-sm-10" style="width: 50px;">
+                        <input type="radio" name="optionsRadios"  value="option2">无
+                    </div>
+                </div>
+                <label for="comp-tel" class="col-sm-2 control-label" >约定工资数额</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control"  placeholder="请输入约定工资数额" style="width: 200px">
+                </div>
+                <label for="compname" class="col-sm-2 control-label" style="text-align: left;">工资数额一致</label>
+                <div class="radio" style="width: 100px;float: left">
+                    <div class="col-sm-10" style="width: 50px;">
+                        <input type="radio" name="optionsRadios"  value="option1">是
+                    </div>
+                    <div class="col-sm-10" style="width: 50px;">
+                        <input type="radio" name="optionsRadios"  value="option2">否
+                    </div>
+                </div>
+                <label for="comp-tel" class="col-sm-2 control-label" >实际工资数额</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control"  placeholder="请输入工资数额" style="width: 200px">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="compname" class="col-sm-2 control-label" style="text-align: left;">合同有无约定工资构成</label>
+                <div class="radio" style="width: 100px;float: left">
+                    <div class="col-sm-10" style="width: 50px;">
+                        <input type="radio" name="optionsRadios"  value="option1">有
+                    </div>
+                    <div class="col-sm-10" style="width: 50px;">
+                        <input type="radio" name="optionsRadios"  value="option2">无
+                    </div>
+                </div>
+                <label for="comp-tel" class="col-sm-2 control-label" >约定工资构成</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control"  placeholder="请输入约定工资构成" style="width: 200px">
+                </div>
+                <label for="compname" class="col-sm-2 control-label" style="text-align: left;">工资构成一致</label>
+                <div class="radio" style="width: 100px;float: left">
+                    <div class="col-sm-10" style="width: 50px;">
+                        <input type="radio" name="optionsRadios"  value="option1">是
+                    </div>
+                    <div class="col-sm-10" style="width: 50px;">
+                        <input type="radio" name="optionsRadios"  value="option2">否
+                    </div>
+                </div>
+                <label for="comp-tel" class="col-sm-2 control-label" >实际工资构成</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control"  placeholder="请输入工资构成" style="width: 200px">
+                </div>
+            </div>
+            <div class="well well-lg">
+                <div class="form-group">
+                    <label for="compname" class="col-sm-2 control-label" style="width: 350px;text-align: left;">诉请中是否包含解除劳动关系经济补偿金或赔偿金</label>
+                    <div class="radio" style="width: 100px;float: left">
+                        <div class="col-sm-10" style="width: 50px;">
+                            <input type="radio" name="optionsRadios"  value="option1">有
+                        </div>
+                        <div class="col-sm-10" style="width: 50px;">
+                            <input type="radio" name="optionsRadios"  value="option2">无
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="comp-tel" class="col-sm-2 control-label"style="width: 350px" >解除或者终止劳动关系前十二个月劳动者的月平均工资数额</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control"  placeholder="请输入月平均工资" style="width: 200px">
+                    </div>
+                    <label for="comp-tel" class="col-sm-2 control-label" >双方解除或者终止劳动关系的原因</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" >
+                            <optgroup label="请选择停止原因" class="group-1">
+                                <option>1.劳动合同期满终止</option>
+                                <option>2.辞职 个人原因</option>
+                                <option>3.辞职 单位原因被迫辞职</option>
+                                <option>4.辞退</option>
+                                <option>5.双方协商一致提前解除</option>
+                                <option>6.其他</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-10" style="width:400px ;">
+                        <label for="timefact" class="col-sm-2 control-label" >解除或终止劳动关系的时间</label>
+                        <div class="input-group date form_date col-md-5 col-sm-10" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                            <input class="form-control" size="16" type="text" value="" readonly >
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-10" style="width:400px ;">
+                        <label for="timefact" class="col-sm-2 control-label" >劳动者最后工作至何日</label>
+                        <div class="input-group date form_date col-md-5 col-sm-10" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                            <input class="form-control" size="16" type="text" value="" readonly >
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="well well-lg">
+                <div class="form-group">
+                    <label for="compname" class="col-sm-2 control-label" style="width: 350px;text-align: left;">诉请中是否包含加班费</label>
+                    <div class="radio" style="width: 100px;float: left">
+                        <div class="col-sm-10" style="width: 50px;">
+                            <input type="radio" name="optionsRadios"  value="option1">有
+                        </div>
+                        <div class="col-sm-10" style="width: 50px;">
+                            <input type="radio" name="optionsRadios"  value="option2">无
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="compname" class="col-sm-2 control-label" >加班是否需要审批</label>
+                    <div class="radio" style="width: 100px;float: left">
+                        <div class="col-sm-10" style="width: 50px;">
+                            <input type="radio" name="optionsRadios"  value="option1">是
+                        </div>
+                        <div class="col-sm-10" style="width: 50px;">
+                            <input type="radio" name="optionsRadios"  value="option2">否
+                        </div>
+                    </div>
+                    <label for="comp-tel" class="col-sm-2 control-label" >工时制度</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" >
+                            <optgroup label="请选择工时制度" class="group-1">
+                                <option>1.标准工时（八小时工作制）</option>
+                                <option>2.综合计算工时制</option>
+                                <option>3.不定时工作制</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label for="comp-tel" class="col-sm-2 control-label" style=" width: 150px" >加班工资计算基数</label>
+                </div>
+                <div class="form-group">
+                    <label for="comp-tel" class="col-sm-2 control-label" >基本工资</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control"  placeholder="请输入基本工资" style="width: 200px">
+                    </div>
+                    <label for="comp-tel" class="col-sm-2 control-label" >其他</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control"  placeholder="请输入其他工资" style="width: 200px">
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label for="comp-tel" class="col-sm-2 control-label" style=" width: 240px;float: left" >工作日延时加班天数(150%)</label>
+                </div>
+                <div class="form-group">
+                    <label for="comp-tel" class="col-sm-2 control-label" >加班天数</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control"  placeholder="请输入加班天数" style="width: 200px">
+                    </div>
+                    <label for="comp-tel" class="col-sm-2 control-label" >加班时长</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control"  placeholder="请输入加班时长" style="width: 200px">
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label for="comp-tel" class="col-sm-2 control-label" style=" width: 220px;float: left" >周六日加班天数(200%)</label>
+                </div>
+                <div class="form-group">
+                    <label for="comp-tel" class="col-sm-2 control-label" >加班天数</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control"  placeholder="请输入加班天数" style="width: 200px">
+                    </div>
+                    <label for="comp-tel" class="col-sm-2 control-label" >加班时长</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control"  placeholder="请输入加班时长" style="width: 200px">
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label for="comp-tel" class="col-sm-2 control-label" style=" width: 240px;float: left" >法定节假日加班天数(300%)</label>
+                </div>
+                <div class="form-group">
+                    <label for="comp-tel" class="col-sm-2 control-label" >加班天数</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control"  placeholder="请输入加班天数" style="width: 200px">
+                    </div>
+                    <label for="comp-tel" class="col-sm-2 control-label" >加班时长</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control"  placeholder="请输入加班时长" style="width: 200px">
+                    </div>
+                </div>
+            </div>
+            <div class="well well-lg">
+                <div class="form-group">
+                    <label for="compname" class="col-sm-2 control-label" style="width: 350px;text-align: left;">诉请中是否包含中夜班津贴</label>
+                    <div class="radio" style="width: 100px;float: left">
+                        <div class="col-sm-10" style="width: 50px;">
+                            <input type="radio" name="optionsRadios"  value="option1">是
+                        </div>
+                        <div class="col-sm-10" style="width: 50px;">
+                            <input type="radio" name="optionsRadios"  value="option2">否
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label for="comp-tel" class="col-sm-2 control-label" style=" width: 400px;text-align: left" >中班津贴（从14点工作至22点或22点以后下班的）</label>
+                </div>
+                <div class="form-group">
+                    <label for="comp-tel" class="col-sm-2 control-label" >中班天数</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control"  placeholder="请输入中班天数" style="width: 200px">
+                    </div>
+                    <label for="comp-tel" class="col-sm-2 control-label" >拖欠期间</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control"  placeholder="请输入拖欠期间" style="width: 200px">
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label for="comp-tel" class="col-sm-2 control-label" style=" width: 400px;text-align: left" >夜班津贴（从22点或22点工作至翌日早6点或6点以后下班）</label>
+                </div>
+                <div class="form-group">
+                    <label for="comp-tel" class="col-sm-2 control-label" >夜班天数</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control"  placeholder="请输入夜班天数" style="width: 200px">
+                    </div>
+                    <label for="comp-tel" class="col-sm-2 control-label" >拖欠期间</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control"  placeholder="请输入拖欠期间" style="width: 200px">
+                    </div>
+                </div>
+            </div>
+            <div class="well well-lg">
+                <div class="form-group">
+                    <label for="compname" class="col-sm-2 control-label" style="width: 350px;text-align: left;">诉请中是否包含防暑降温费</label>
+                    <div class="radio" style="width: 100px;float: left">
+                        <div class="col-sm-10" style="width: 50px;">
+                            <input type="radio" name="optionsRadios"  value="option1">有
+                        </div>
+                        <div class="col-sm-10" style="width: 50px;">
+                            <input type="radio" name="optionsRadios"  value="option2">无
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="compname" class="col-sm-2 control-label" style="width: 350px;text-align: left;">单位是否发放过防暑降温费</label>
+                    <div class="radio" style="width: 100px;float: left">
+                        <div class="col-sm-10" style="width: 50px;">
+                            <input type="radio" name="optionsRadios"  value="option1">有
+                        </div>
+                        <div class="col-sm-10" style="width: 50px;">
+                            <input type="radio" name="optionsRadios"  value="option2">无
+                        </div>
+                    </div>
+                    <label for="comp-tel" class="col-sm-2 control-label" >具体发放情况</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control"  placeholder="请输入发放情况" style="width: 200px">
+                    </div>
+                </div>
+            </div>
+            <div class="well well-lg">
+                <div class="form-group">
+                    <label for="compname" class="col-sm-2 control-label" style="width: 350px;text-align: left;">诉请中是否包含未休年假工资</label>
+                    <div class="radio" style="width: 100px;float: left">
+                        <div class="col-sm-10" style="width: 50px;">
+                            <input type="radio" name="optionsRadios"  value="option1">有
+                        </div>
+                        <div class="col-sm-10" style="width: 50px;">
+                            <input type="radio" name="optionsRadios"  value="option2">无
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="address" class="col-sm-2 control-label" >未休年假天数</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control"  placeholder="请输入未休年假天数" style="width: 200px">
+                    </div>
+                    <label for="comp-tel" class="col-sm-2 control-label" >应休年假天数</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control"  placeholder="请输入应休年假天数" style="width: 200px">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="address" class="col-sm-2 control-label" >未休年休假工资数额</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control"  placeholder="请输入未休年假天数" style="width: 200px">
+                    </div>
+                    <label for="comp-tel" class="col-sm-2 control-label" >单位支付过年假工资</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control"  placeholder="请输入应休年假天数" style="width: 200px">
+                    </div>
+                </div>
+            </div>
+            <div class="well well-lg">
+                <div class="form-group">
+                    <label for="compname" class="col-sm-2 control-label" style="width: 350px;text-align: left;">诉请中是否包含未签订书面劳动合同二倍工资</label>
+                    <div class="radio" style="width: 100px;float: left">
+                        <div class="col-sm-10" style="width: 50px;">
+                            <input type="radio" name="optionsRadios"  value="option1">有
+                        </div>
+                        <div class="col-sm-10" style="width: 50px;">
+                            <input type="radio" name="optionsRadios"  value="option2">无
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="compname" class="col-sm-2 control-label" style="width: 350px;text-align: left;">是否发放未签订合同二倍工资</label>
+                    <div class="radio" style="width: 100px;float: left">
+                        <div class="col-sm-10" style="width: 50px;">
+                            <input type="radio" name="optionsRadios"  value="option1">有
+                        </div>
+                        <div class="col-sm-10" style="width: 50px;">
+                            <input type="radio" name="optionsRadios"  value="option2">无
+                        </div>
+                    </div>
+                    <label for="comp-tel" class="col-sm-2 control-label" >具体发放情况</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control"  placeholder="请输入发放情况" style="width: 200px">
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label for="comp-tel" class="col-sm-2 control-label" style=" width: 400px;text-align: left" >主张二倍工资金额与期间</label>
+                </div>
+                <div class="form-group">
+                    <label for="comp-tel" class="col-sm-2 control-label"style="text-align: left">数额</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control"  placeholder="请输入数额" style="width: 200px">
+                    </div>
+                    <div class="col-sm-10" style="width:400px ;">
+                        <label for="timefact" class="col-sm-2 control-label" >拖欠期间</label>
+                        <div class="input-group date form_date col-md-5 col-sm-10" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                            <input class="form-control" size="16" type="text" value="" readonly >
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-10" style="width:400px ;">
+                        <label for="timefact" class="col-sm-2 control-label" >至</label>
+                        <div class="input-group date form_date col-md-5 col-sm-10" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                            <input class="form-control" size="16" type="text" value="" readonly >
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label for="comp-tel" class="col-sm-2 control-label" style=" width: 240px;text-align: left" >约定的工资报酬</label>
+                </div>
+                <div class="form-group">
+                    <label for="comp-tel" class="col-sm-2 control-label" style="text-align: left">项目</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control"  placeholder="请输入工资项目" style="width: 200px">
+                    </div>
+                    <label for="comp-tel" class="col-sm-2 control-label" >金额</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control"  placeholder="请输入金额" style="width: 200px">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="timeset" class="col-sm-2 control-label" >其余补充</label>
+                <textarea class="form-control" rows="2" style="width: 400px" placeholder="请输入补充内容"></textarea>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-10"></div><div class="col-sm-10"></div>
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-info">确认</button>
+                    <button type="reset"  class="btn btn-default">重置</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!--追索报酬-->
+<div class="panel panel-info" id="search" style="display:none;">
+    <div class="panel-heading" >
+        <h3 class="panel-title">追索劳动报酬纠纷</h3>
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <label for="compname" class="col-sm-2 control-label" style="width: 200px;text-align: left;">是否存在劳动关系</label>
+                <div class="radio" style="width: 100px;float: left">
+                    <div class="col-sm-10" style="width: 50px;">
+                        <input type="radio" name="optionsRadios"  value="option1">是
+                    </div>
+                    <div class="col-sm-10" style="width: 50px;">
+                        <input type="radio" name="optionsRadios"  value="option2">否
+                    </div>
+                </div>
+                <label for="comp-tel" class="col-sm-2 control-label" >工时制度</label>
+                <div class="col-sm-10">
+                    <select class="form-control" >
+                        <optgroup label="请选择工时制度" class="group-1">
+                            <option>1.标准工时（八小时工作制）</option>
+                            <option>2.综合计算工时制</option>
+                            <option>3.不定时工作制</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="comp-tel" class="col-sm-2 control-label" style="text-align: left" >月工资数额</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control"  placeholder="请输入金额" style="width: 200px">
+                </div>
+                <label for="comp-tel" class="col-sm-2 control-label" style="text-align: left" >发放形式</label>
+                <div class="col-sm-10">
+                    <select class="form-control" >
+                        <optgroup label="请选择工时制度" class="group-1">
+                            <option>1.现金</option>
+                            <option>2.银行转账</option>
+                            <option>3.其他</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <label for="comp-tel" class="col-sm-2 control-label" style="text-align: left" >拖欠工资数额</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control"  placeholder="请输入金额" style="width: 200px">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="compname" class="col-sm-2 control-label" style="width: 200px;text-align: left;">就加班问题有无约定</label>
+                <div class="radio" style="width: 100px;float: left">
+                    <div class="col-sm-10" style="width: 50px;">
+                        <input type="radio" name="optionsRadios"  value="option1">有
+                    </div>
+                    <div class="col-sm-10" style="width: 50px;">
+                        <input type="radio" name="optionsRadios"  value="option2">无
+                    </div>
+                </div>
+                <label for="comp-tel" class="col-sm-2 control-label" >加班工资计算基数</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control"  placeholder="请输入加班工资基数" style="width: 200px">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="comp-tel" class="col-sm-2 control-label" >正常工作日加班天数</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control"  placeholder="请输入正常工作日加班天数" style="width: 200px">
+                </div>
+                <label for="comp-tel" class="col-sm-2 control-label" >法定休息日加班天数</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control"  placeholder="请输入法定休息日加班天数" style="width: 200px">
+                </div>
+                <label for="comp-tel" class="col-sm-2 control-label" >法定节假日加班天数</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control"  placeholder="请输入法定节假日加班天数" style="width: 200px">
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label for="comp-tel" class="col-sm-2 control-label" >因发工资金额</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control"  placeholder="请输入因发工资金额" style="width: 200px">
+                </div>
+                <label for="comp-tel" class="col-sm-2 control-label" >实际发放工资金额</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control"  placeholder="请输入实际发放工资金额" style="width: 200px">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="timeset" class="col-sm-2 control-label" style="text-align: left">其余补充</label>
+                <textarea class="form-control" rows="2" style="width: 400px" placeholder="请输入补充内容"></textarea>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-10"></div><div class="col-sm-10"></div>
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-info">确认</button>
+                    <button type="reset"  class="btn btn-default">重置</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+<script type="text/javascript">
+    $('.form_date').datetimepicker({
+        language:  'fr',
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 2,
+        forceParse: 0
+    });
+    $("select#status").change(function(){
+        var relation=document.getElementById("relationship");
+        var injury=document.getElementById("injury");
+        var normal=document.getElementById("normal");
+        var search=document.getElementById("search");
+        if($(this).val()=="relationship"){
+            relation.style.display="block";
+            injury.style.display="none";
+            normal.style.display="none";
+            search.style.display="none";
+        }
+        else if($(this).val()=="injury"){
+            injury.style.display="block";
+            normal.style.display="none";
+            relation.style.display="none";
+            search.style.display="none";
+        }
+        else if($(this).val()=="normal"){
+            normal.style.display="block";
+            relation.style.display="none";
+            injury.style.display="none";
+            search.style.display="none";
+        }
+        else {
+            search.style.display="block";
+            relation.style.display="none";
+            injury.style.display="none";
+            normal.style.display="none";
+        }
+    });
+
+</script>
+
+</body>
+</html>
